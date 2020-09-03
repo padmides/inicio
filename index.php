@@ -8,7 +8,7 @@
         <meta name="keywords" content="Desarrollo Web, Calidad, Servicio Full, Plan de Trabajo, WordPress, Pagina web a medida, Mi propia pagina web.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-
+asd
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/flaticon.css">
         <link rel="stylesheet" href="assets/css/animate.min.css">
