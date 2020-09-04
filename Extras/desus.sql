@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 03-09-2020 a las 19:59:36
+-- Tiempo de generación: 04-09-2020 a las 23:25:23
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.3.5
 
@@ -63,6 +63,54 @@ CREATE TABLE IF NOT EXISTS `cobros` (
   `pago` int(2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturacion`
+--
+
+DROP TABLE IF EXISTS `facturacion`;
+CREATE TABLE IF NOT EXISTS `facturacion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) DEFAULT NULL,
+  `descripcion` text,
+  `monto` text,
+  `fecha_pagar` date DEFAULT NULL,
+  `fecha_cobro` date DEFAULT NULL,
+  `estado` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `facturacion`
+--
+
+INSERT INTO `facturacion` (`id`, `id_cliente`, `descripcion`, `monto`, `fecha_pagar`, `fecha_cobro`, `estado`) VALUES
+(1, 1, 'Paga mes de septiembre', '1.500,00', '2020-09-24', NULL, 'apagar'),
+(2, 1, 'facturacion del mes agosto', '1.500,00', '2020-08-24', '2020-08-27', 'pagado');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `informacion_facturacion`
+--
+
+DROP TABLE IF EXISTS `informacion_facturacion`;
+CREATE TABLE IF NOT EXISTS `informacion_facturacion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` text,
+  `telefono` text,
+  `email` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `informacion_facturacion`
+--
+
+INSERT INTO `informacion_facturacion` (`id`, `nombre`, `telefono`, `email`) VALUES
+(1, 'Desus Web', '+54 9 (341) 156659490', 'contacto@desusweb.com');
 
 -- --------------------------------------------------------
 
