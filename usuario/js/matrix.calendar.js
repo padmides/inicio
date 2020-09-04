@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
-	
-	maruti.init();
+	var maruti = init();
+	//maruti.init();
 	
 	$('#add-event-submit').click(function(){
 		maruti.add_event();
@@ -14,10 +14,9 @@ $(document).ready(function(){
 	});	
 });
 
-maruti = {	
-	
+
 	// === Initialize the fullCalendar and external draggable events === //
-	init: function() {	
+	function init() {	
 		// Prepare the dates
 		var date = new Date();
 		var d = date.getDate();
@@ -56,10 +55,10 @@ maruti = {
 			}
 		});
 		this.external_events();		
-	},
+	}
 	
 	// === Adds an event if name is provided === //
-	add_event: function(){
+	function add_event(){
 		if($('#event-name').val() != '') {
 			var event_name = $('#event-name').val();
 			$('#external-events .panel-content').append('<div class="external-event ui-draggable label label-inverse">'+event_name+'</div>');
@@ -69,10 +68,10 @@ maruti = {
 		} else {
 			this.show_error();
 		}
-	},
+	}
 	
 	// === Initialize the draggable external events === //
-	external_events: function(){
+	function external_events(){
 		/* initialize the external events
 		-----------------------------------------------------------------*/
 		$('#external-events div.external-event').each(function() {		
@@ -92,16 +91,13 @@ maruti = {
 				revertDuration: 0  //  original position after the drag
 			});		
 		});		
-	},
+	}
 	
 	// === Show error if no event name is provided === //
-	show_error: function(){
+	function show_error(){
 		$('#modal-error').remove();
 		$('<div style="border-radius: 5px; top: 70px; font-size:14px; left: 50%; margin-left: -70px; position: absolute;width: 140px; background-color: #f00; text-align: center; padding: 5px; color: #ffffff;" id="modal-error">Enter event name!</div>').appendTo('#modal-add-event .modal-body');
 		$('#modal-error').delay('1500').fadeOut(700,function() {
 			$(this).remove();
 		});
 	}
-	
-	
-};

@@ -1,11 +1,9 @@
 <head>
 <?php
-// We need to use sessions, so you should always start sessions using the below code.
 session_start();
-// If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-  header('Location: login.php');
-  exit;
+	header('Location: login.php');
+	exit;
 }
 ?>
 <title>DesusWeb - Usuarios</title>
@@ -24,4 +22,5 @@ if (!isset($_SESSION['loggedin'])) {
 <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
 <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
 <link rel="stylesheet" href="css/jquery.gritter.css" />
+<link rel="stylesheet" href="css/fullcalendar.css" />
 </head>

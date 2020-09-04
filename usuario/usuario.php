@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include("header.php"); ?>
+<?php include_once("header.php"); ?>
 <body>
-<?php include("menu.php"); ?>
+<?php include_once("menu.php"); ?>
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Widgets</a> </div>
-    <h1>Widgets</h1>
+    <h1>Usuario</h1>
   </div>
   <div class="container-fluid">
     <hr>
@@ -47,18 +46,33 @@
         </div>
       </div>
     </div>
+
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Data table</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>Mes de factura</th>
+                  <th>Compronte</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <!--main-container-part-->
-
-<!--Footer-part-->
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
-</div>
-<!--end-Footer-part-->
-<script src="js/jquery.min.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/matrix.js"></script>
-</body>
-</html>
+<?php include_once("footer.php"); ?>

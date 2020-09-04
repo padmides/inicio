@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include("header.php"); ?>
+<?php include_once("header.php"); ?>
 <body>
-<?php include("menu.php"); ?>
+<?php include_once("menu.php"); ?>
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Form elements</a> <a href="#" class="current">Validation</a> </div>
-    <h1>Form validation</h1>
+    <h1>Perfil</h1>
   </div>
   <div class="container-fluid"><hr>
     <div class="row-fluid">
@@ -66,18 +65,6 @@
     </div>
   </div>
 </div>
-<!--Footer-part-->
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
-</div>
-<!--end-Footer-part-->
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
-<script src="js/jquery.validate.js"></script> 
-<script src="js/matrix.js"></script> 
-<script src="js/matrix.form_validation.js"></script>
+<?php include_once("footer.php"); ?>
 </body>
 </html>

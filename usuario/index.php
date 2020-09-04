@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-include("header.php"); ?>
+<?php include_once("header.php"); ?>
 <body>
-<?php include("menu.php"); ?>
+<?php include_once("menu.php"); ?>
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"><a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Charts &amp; graphs</a></div>
-    <h1>Charts &amp; graphs</h1>
+    <h1>Administrador</h1>
   </div>
   <div class="container-fluid">
     <hr>
@@ -48,26 +46,7 @@ include("header.php"); ?>
     <div id="container"></div>
   </div>
 </div>
-<!--Footer-part-->
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
-</div>
-<!--end-Footer-part-->
-<script src="js/jquery.min.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.flot.min.js"></script> 
-<script src="js/jquery.flot.pie.min.js"></script> 
-<!--<script src="js/matrix.charts.js"></script> -->
-<script src="js/jquery.flot.resize.min.js"></script> 
-<!--<script src="js/matrix.js"></script> -->
-<script src="js/jquery.peity.min.js"></script>  
-<script src="js/matrix.dashboard.js"></script>
-<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
-  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
-  <script src="https://cdn.anychart.com/releases/v8/js/anychart-stock.min.js"></script>
-  <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
-  <script src="https://cdn.anychart.com/releases/v8/themes/dark_blue.min.js"></script>
+<?php include_once("footer.php"); ?>
 </body>
 </html>
 <script>

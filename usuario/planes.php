@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include("header.php"); ?>
+<?php include_once("header.php"); ?>
 <body>
-<?php include("menu.php"); ?>
+<?php include_once("menu.php"); ?>
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"></div>
     <h1>Planes de pago</h1>
   </div>
   <div class="container-fluid">
     <hr>
     <div class="row-fluid">
       <?php
-      include("conexion.php");
+      include_once("conexion.php");
       $sql = mysqli_query($con, "SELECT * FROM `clientes` WHERE id='1'");
       $re = mysqli_fetch_array($sql);
       $meses3   = 0;
@@ -94,14 +93,6 @@
     </div>
   </div>
 </div>
-<!--Footer-part-->
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
-</div>
-<!--end-Footer-part-->
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/matrix.js"></script>
+<?php include_once("footer.php"); ?>
 </body>
 </html>

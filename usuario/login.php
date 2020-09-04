@@ -91,6 +91,7 @@
                     if (respuesta.estado) {
                         $("#correcto").removeClass("vOculto").addClass("vVisible");
                         document.getElementById("correcto").innerHTML = respuesta.mensje;
+                        location.href = "index.php";
                     } else {
                         $("#error").removeClass("vOculto").addClass("vVisible");
                         document.getElementById("error").innerHTML = respuesta.mensje;
