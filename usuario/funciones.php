@@ -1,7 +1,7 @@
 <?php
 
 function url($nombreurl){
-	$url = $_SERVER["REQUEST_URI"];
+	$url = $_SERVER["REQUEST_URI"]; // URL EVITANDO EL SERVIDOR
     $separar = explode("/",$url);
     $valor = $separar[count($separar)-1];
     if($nombreurl == $valor){

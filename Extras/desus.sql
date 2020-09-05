@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 04-09-2020 a las 23:25:23
--- Versión del servidor: 5.7.26
--- Versión de PHP: 7.3.5
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 05-09-2020 a las 02:16:03
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,9 +27,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `clientes`
 --
 
-DROP TABLE IF EXISTS `clientes`;
-CREATE TABLE IF NOT EXISTS `clientes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `clientes` (
+  `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `plan` varchar(10) NOT NULL,
   `monto` int(5) NOT NULL,
@@ -38,9 +36,8 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `fecha_vencimiento` date NOT NULL,
   `3mes` int(5) NOT NULL,
   `6mes` int(5) NOT NULL,
-  `12mes` int(5) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `12mes` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -55,13 +52,11 @@ INSERT INTO `clientes` (`id`, `nombre`, `plan`, `monto`, `fecha_alta`, `fecha_ve
 -- Estructura de tabla para la tabla `cobros`
 --
 
-DROP TABLE IF EXISTS `cobros`;
-CREATE TABLE IF NOT EXISTS `cobros` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cobros` (
+  `id` int(11) NOT NULL,
   `id_cliente` int(5) NOT NULL,
   `vencimiento` date NOT NULL,
-  `pago` int(2) NOT NULL,
-  PRIMARY KEY (`id`)
+  `pago` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -70,17 +65,15 @@ CREATE TABLE IF NOT EXISTS `cobros` (
 -- Estructura de tabla para la tabla `facturacion`
 --
 
-DROP TABLE IF EXISTS `facturacion`;
-CREATE TABLE IF NOT EXISTS `facturacion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `facturacion` (
+  `id` int(11) NOT NULL,
   `id_cliente` int(11) DEFAULT NULL,
-  `descripcion` text,
-  `monto` text,
+  `descripcion` text DEFAULT NULL,
+  `monto` text DEFAULT NULL,
   `fecha_pagar` date DEFAULT NULL,
   `fecha_cobro` date DEFAULT NULL,
-  `estado` varchar(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `estado` varchar(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `facturacion`
@@ -96,14 +89,12 @@ INSERT INTO `facturacion` (`id`, `id_cliente`, `descripcion`, `monto`, `fecha_pa
 -- Estructura de tabla para la tabla `informacion_facturacion`
 --
 
-DROP TABLE IF EXISTS `informacion_facturacion`;
-CREATE TABLE IF NOT EXISTS `informacion_facturacion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` text,
-  `telefono` text,
-  `email` text,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+CREATE TABLE `informacion_facturacion` (
+  `id` int(11) NOT NULL,
+  `nombre` text DEFAULT NULL,
+  `telefono` text DEFAULT NULL,
+  `email` text DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `informacion_facturacion`
@@ -118,21 +109,94 @@ INSERT INTO `informacion_facturacion` (`id`, `nombre`, `telefono`, `email`) VALU
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
   `nombre` varchar(15) NOT NULL,
   `contraseña` varchar(15) NOT NULL,
   `email` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `tipo` int(1) NOT NULL,
+  `domicilio` text NOT NULL,
+  `localidad` text NOT NULL,
+  `cuit` text NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `razon` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `contraseña`, `email`) VALUES
-(1, 'maxhy', 'maxhy_123', 'angelimaximiliano@gmail.com');
+INSERT INTO `usuarios` (`id`, `nombre`, `contraseña`, `email`, `tipo`, `domicilio`, `localidad`, `cuit`, `telefono`, `razon`) VALUES
+(1, 'maxhy', 'maxhy_123', 'angelimaximiliano@gmail.com', 1, '', '', '', 0, ''),
+(2, 'juan', '1', 'juanpabloruizbre@gmail.com', 1, 'Corrientes 5780', 'Rosario', '20-38905672-4', 2147483647, 'EMPRESA JP');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `cobros`
+--
+ALTER TABLE `cobros`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `facturacion`
+--
+ALTER TABLE `facturacion`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `informacion_facturacion`
+--
+ALTER TABLE `informacion_facturacion`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `cobros`
+--
+ALTER TABLE `cobros`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `facturacion`
+--
+ALTER TABLE `facturacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `informacion_facturacion`
+--
+ALTER TABLE `informacion_facturacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
